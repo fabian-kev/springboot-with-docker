@@ -3,5 +3,6 @@ RUN addgroup -S spring && adduser -S spring -G spring
 USER spring:spring
 WORKDIR usr/src
 ARG JAR_FILE=build/libs/*.jar
-ADD ${JAR_FILE} /usr/src/app-user.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+COPY ${JAR_FILE} app.jar
+COPY run.sh .
+ENTRYPOINT ["./run.sh"]
