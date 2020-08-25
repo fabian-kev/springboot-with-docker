@@ -1,0 +1,10 @@
+version: "3"
+services:
+  user:
+    container_name: user-service
+    image: user-img
+    build: .
+    volumes:
+      - ./build/libs/user-0.0.1.jar:/user.jar
+    ports:
+      - 666:8000
